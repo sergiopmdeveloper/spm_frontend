@@ -1,0 +1,11 @@
+# Dependencies
+node_modules
+
+# Production
+dist
+
+# VSCode
+.vscode
+
+# Development container
+.devcontainer
