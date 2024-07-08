@@ -16,7 +16,7 @@ export default function SectionTitle({ id, name }: SectionTitleProps) {
   )
 }
 
-// Prop types
+// Props
 type SectionTitleProps = {
   id: string
   name: string

@@ -1,5 +1,6 @@
 import Section from '@/components/ui/Section'
 import SectionTitle from '@/components/ui/SectionTitle'
+import Skeleton from '@/components/ui/Skeleton'
 import getStudies from '@/services/getStudies'
 import { useQuery } from '@tanstack/react-query'
 
@@ -12,19 +13,10 @@ export default function Studies() {
     queryFn: getStudies,
   })
 
-  if (query.isLoading) {
-    return <div>Loading...</div>
-  }
-
-  if (query.isError) {
-    return <div>Error loading the studies</div>
-  }
-
-  if (query.data) {
-    return (
-      <Section>
-        <SectionTitle id="01" name="Studies" />
-      </Section>
-    )
-  }
+  return (
+    <Section>
+      <SectionTitle id="01" name="Studies" />
+      {query.isLoading && <Skeleton height="10rem" />}
+    </Section>
+  )
 }
