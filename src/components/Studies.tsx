@@ -1,3 +1,4 @@
+import LoadingError from '@/components/ui/LoadingError'
 import Section from '@/components/ui/Section'
 import SectionTitle from '@/components/ui/SectionTitle'
 import Skeleton from '@/components/ui/Skeleton'
@@ -17,6 +18,7 @@ export default function Studies() {
     <Section>
       <SectionTitle id="01" name="Studies" />
       {query.isLoading && <Skeleton height="10rem" />}
+      {query.error && <LoadingError height="10rem" source="studies" />}
     </Section>
   )
 }
