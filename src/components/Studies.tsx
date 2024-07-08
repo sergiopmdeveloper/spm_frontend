@@ -1,3 +1,5 @@
+import Section from '@/components/ui/Section'
+import SectionTitle from '@/components/ui/SectionTitle'
 import getStudies from '@/services/getStudies'
 import { useQuery } from '@tanstack/react-query'
 
@@ -20,15 +22,9 @@ export default function Studies() {
 
   if (query.data) {
     return (
-      <div>
-        <h1>Studies</h1>
-
-        <ul>
-          {query.data.map((study, index) => (
-            <li key={index}>{study.name}</li>
-          ))}
-        </ul>
-      </div>
+      <Section>
+        <SectionTitle id="01" name="Studies" />
+      </Section>
     )
   }
 }
