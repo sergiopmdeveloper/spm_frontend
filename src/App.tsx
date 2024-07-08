@@ -1,10 +1,12 @@
+import Studies from '@/components/Studies'
+
 /**
  * App component
  */
 export default function App() {
   return (
     <main>
-      <h1>Hello world!</h1>
+      <Studies />
     </main>
   )
 }
