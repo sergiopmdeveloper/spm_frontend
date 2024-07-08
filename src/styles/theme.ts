@@ -58,4 +58,7 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     background: ${theme.navy};
   }
+  h1, h2, h3, h4, p {
+    margin: 0;
+  }
 `

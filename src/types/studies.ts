@@ -3,5 +3,5 @@ export type Study = {
   school: string
   description: string
   start_date: string
-  end_date: string
+  end_date?: string
 }

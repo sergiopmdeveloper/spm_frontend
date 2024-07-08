@@ -26,6 +26,7 @@ type SectionTitleProps = {
 const SectionTitleContainer = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 2rem;
 `
 
 const SectionTitleNumber = styled.span`
