@@ -60,6 +60,9 @@ const StudyContainer = styled.div`
   gap: 2rem;
   padding-left: 2rem;
   position: relative;
+  @media (width <= ${theme.tablet}) {
+    flex-direction: column;
+  }
 `
 
 const StudyContext = styled.div`
@@ -67,24 +70,36 @@ const StudyContext = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  @media (width <= ${theme.tablet}) {
+    min-width: unset;
+  }
 `
 
 const StudyDate = styled.time`
   color: ${theme.slate};
   font-family: ${theme.spaceMono};
   font-size: ${theme.fontSize2};
+  @media (width <= ${theme.smallMobile}) {
+    font-size: ${theme.fontSize1};
+  }
 `
 
 const StudyName = styled.h3`
   color: ${theme.lightestSlate};
   font-family: ${theme.roboto};
   font-size: ${theme.fontSize4};
+  @media (width <= ${theme.smallMobile}) {
+    font-size: ${theme.fontSize3};
+  }
 `
 
 const StudySchool = styled.h3`
   color: ${theme.lightSlate};
   font-family: ${theme.roboto};
   font-size: ${theme.fontSize3};
+  @media (width <= ${theme.smallMobile}) {
+    font-size: ${theme.fontSize2};
+  }
 `
 
 const StudyDescription = styled.p`
@@ -93,6 +108,9 @@ const StudyDescription = styled.p`
   font-family: ${theme.roboto};
   font-size: ${theme.fontSize3};
   padding: 1rem;
+  @media (width <= ${theme.smallMobile}) {
+    font-size: ${theme.fontSize2};
+  }
 `
 
 const Circle = styled.div`
