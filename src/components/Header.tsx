@@ -1,5 +1,7 @@
 import useActiveSection from '@/hooks/useActiveSection'
 import { theme } from '@/styles/theme'
+import { useGSAP } from '@gsap/react'
+import { gsap } from 'gsap'
 import styled from 'styled-components'
 
 /**
@@ -8,9 +10,17 @@ import styled from 'styled-components'
 export default function Header() {
   const activeSection = useActiveSection()
 
+  useGSAP(() => {
+    gsap.from('.header-content', {
+      y: -100,
+      duration: 1,
+      ease: 'power2.out',
+    })
+  }, {})
+
   return (
     <HeaderContainer>
-      <HeaderContent>
+      <HeaderContent className="header-content">
         <HeaderLinks>
           <HeaderLink $active={activeSection.includes('studies')}>
             <a href="#studies">Studies</a>
