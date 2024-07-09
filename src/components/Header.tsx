@@ -19,6 +19,7 @@ export default function Header() {
   )
 }
 
+// Styled components
 const HeaderContainer = styled.div`
   height: 5rem;
   display: flex;
@@ -41,6 +42,9 @@ const HeaderLinks = styled.ul`
   gap: 1.5rem;
   padding: 0;
   margin: 0;
+  @media (width <= ${theme.largeMobile}) {
+    gap: 0.8rem;
+  }
 `
 
 const HeaderLink = styled.li`
@@ -48,4 +52,11 @@ const HeaderLink = styled.li`
   color: ${theme.white};
   font-family: ${theme.spaceMono};
   font-size: ${theme.fontSize2};
+  cursor: pointer;
+  &:hover {
+    color: ${theme.green};
+  }
+  @media (width <= ${theme.largeMobile}) {
+    font-size: ${theme.fontSize1};
+  }
 `
