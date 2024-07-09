@@ -2,6 +2,7 @@ import LoadingError from '@/components/ui/LoadingError'
 import Section from '@/components/ui/Section'
 import SectionTitle from '@/components/ui/SectionTitle'
 import Skeleton from '@/components/ui/Skeleton'
+import getJobs from '@/services/getJobs'
 import getStudies from '@/services/getStudies'
 import { theme } from '@/styles/theme'
 import formatDate from '@/utils/dates'
@@ -11,7 +12,7 @@ import styled from 'styled-components'
 /**
  * Studies component
  */
-export default function Studies() {
+export function Studies() {
   const query = useQuery({
     queryKey: ['studies'],
     queryFn: getStudies,
@@ -23,31 +24,69 @@ export default function Studies() {
       {query.isLoading && <Skeleton height="10rem" />}
       {query.error && <LoadingError height="10rem" source="studies" />}
       {query.data && (
-        <StudiesContainer>
+        <TimeContentContainer>
           {query.data.map((study, index) => {
             return (
-              <StudyContainer key={index}>
-                <StudyContext>
-                  <StudyDate>
+              <Content key={index}>
+                <ContentContext>
+                  <ContentDate>
                     {formatDate(study.start_date)} -{' '}
                     {study.end_date ? formatDate(study.end_date) : 'Present'}
-                  </StudyDate>
-                  <StudyName>{study.name}</StudyName>
-                  <StudySchool>{study.school}</StudySchool>
-                </StudyContext>
-                <StudyDescription>{study.description}</StudyDescription>
+                  </ContentDate>
+                  <ContentName>{study.name}</ContentName>
+                  <ContentOrigin>{study.school}</ContentOrigin>
+                </ContentContext>
+                <ContentDescription>{study.description}</ContentDescription>
                 <Circle />
-              </StudyContainer>
+              </Content>
             )
           })}
-        </StudiesContainer>
+        </TimeContentContainer>
+      )}
+    </Section>
+  )
+}
+
+/**
+ * Jobs component
+ */
+export function Jobs() {
+  const query = useQuery({
+    queryKey: ['jobs'],
+    queryFn: getJobs,
+  })
+
+  return (
+    <Section>
+      <SectionTitle id="02" name="Jobs" />
+      {query.isLoading && <Skeleton height="10rem" />}
+      {query.error && <LoadingError height="10rem" source="studies" />}
+      {query.data && (
+        <TimeContentContainer>
+          {query.data.map((job, index) => {
+            return (
+              <Content key={index}>
+                <ContentContext>
+                  <ContentDate>
+                    {formatDate(job.start_date)} -{' '}
+                    {job.end_date ? formatDate(job.end_date) : 'Present'}
+                  </ContentDate>
+                  <ContentName>{job.name}</ContentName>
+                  <ContentOrigin>{job.company}</ContentOrigin>
+                </ContentContext>
+                <ContentDescription>{job.description}</ContentDescription>
+                <Circle />
+              </Content>
+            )
+          })}
+        </TimeContentContainer>
       )}
     </Section>
   )
 }
 
 // Styled components
-const StudiesContainer = styled.div`
+const TimeContentContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -55,7 +94,7 @@ const StudiesContainer = styled.div`
   border-left: 0.1rem solid ${theme.white};
 `
 
-const StudyContainer = styled.div`
+const Content = styled.div`
   display: flex;
   gap: 2rem;
   padding-left: 2rem;
@@ -65,7 +104,7 @@ const StudyContainer = styled.div`
   }
 `
 
-const StudyContext = styled.div`
+const ContentContext = styled.div`
   min-width: 20rem;
   display: flex;
   flex-direction: column;
@@ -75,7 +114,7 @@ const StudyContext = styled.div`
   }
 `
 
-const StudyDate = styled.time`
+const ContentDate = styled.time`
   color: ${theme.slate};
   font-family: ${theme.spaceMono};
   font-size: ${theme.fontSize2};
@@ -84,7 +123,7 @@ const StudyDate = styled.time`
   }
 `
 
-const StudyName = styled.h3`
+const ContentName = styled.h3`
   color: ${theme.lightestSlate};
   font-family: ${theme.roboto};
   font-size: ${theme.fontSize4};
@@ -93,7 +132,7 @@ const StudyName = styled.h3`
   }
 `
 
-const StudySchool = styled.h3`
+const ContentOrigin = styled.h3`
   color: ${theme.lightSlate};
   font-family: ${theme.roboto};
   font-size: ${theme.fontSize3};
@@ -102,7 +141,7 @@ const StudySchool = styled.h3`
   }
 `
 
-const StudyDescription = styled.p`
+const ContentDescription = styled.p`
   color: ${theme.white};
   background-color: ${theme.lightNavy};
   font-family: ${theme.roboto};
