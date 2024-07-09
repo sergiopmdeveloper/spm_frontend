@@ -29,10 +29,10 @@ export default function Header() {
             <a href="#career">Career</a>
           </HeaderLink>
           <HeaderLink $active={activeSection.includes('projects')}>
-            Projects
+            <a href="#projects">Projects</a>
           </HeaderLink>
           <HeaderLink $active={activeSection.includes('contact')}>
-            Contact
+            <a href="#contact">Contact</a>
           </HeaderLink>
         </HeaderLinks>
       </HeaderContent>
