@@ -19,7 +19,7 @@ export function Studies() {
   })
 
   return (
-    <Section>
+    <Section className="section" id="studies">
       <SectionTitle id="01" name="Studies" />
       {query.isLoading && <Skeleton height="10rem" />}
       {query.error && <LoadingError height="10rem" source="studies" />}
@@ -48,17 +48,17 @@ export function Studies() {
 }
 
 /**
- * Jobs component
+ * Career component
  */
-export function Jobs() {
+export function Career() {
   const query = useQuery({
     queryKey: ['jobs'],
     queryFn: getJobs,
   })
 
   return (
-    <Section>
-      <SectionTitle id="02" name="Jobs" />
+    <Section className="section" id="career">
+      <SectionTitle id="02" name="Career" />
       {query.isLoading && <Skeleton height="10rem" />}
       {query.error && <LoadingError height="10rem" source="studies" />}
       {query.data && (

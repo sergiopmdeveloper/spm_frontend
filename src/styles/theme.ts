@@ -53,6 +53,9 @@ export const theme = {
 
 // Global styles
 export const GlobalStyles = createGlobalStyle`
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     margin: 0;
     padding: 0;
@@ -60,5 +63,9 @@ export const GlobalStyles = createGlobalStyle`
   }
   h1, h2, h3, h4, p {
     margin: 0;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
   }
 `

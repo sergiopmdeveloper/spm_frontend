@@ -1,4 +1,5 @@
-import { Jobs, Studies } from '@/components/TimeContent'
+import Header from '@/components/Header'
+import { Career, Studies } from '@/components/TimeContent'
 
 /**
  * App component
@@ -6,8 +7,9 @@ import { Jobs, Studies } from '@/components/TimeContent'
 export default function App() {
   return (
     <main>
+      <Header />
       <Studies />
-      <Jobs />
+      <Career />
     </main>
   )
 }
