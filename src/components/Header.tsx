@@ -1,18 +1,57 @@
 import { theme } from '@/styles/theme'
+import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 /**
  * Header component
  */
 export default function Header() {
+  const [activeSection, setActiveSection] = useState('')
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('#section')
+
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5,
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.className)
+        }
+      })
+    }, options)
+
+    sections.forEach(section => {
+      observer.observe(section)
+    })
+
+    return () => {
+      sections.forEach(section => {
+        observer.unobserve(section)
+      })
+    }
+  }, [])
+
   return (
     <HeaderContainer>
       <HeaderContent>
         <HeaderLinks>
-          <HeaderLink>Studies</HeaderLink>
-          <HeaderLink>Jobs</HeaderLink>
-          <HeaderLink>Projects</HeaderLink>
-          <HeaderLink>Contact</HeaderLink>
+          <HeaderLink $active={activeSection.includes('studies')}>
+            Studies
+          </HeaderLink>
+          <HeaderLink $active={activeSection.includes('career')}>
+            Career
+          </HeaderLink>
+          <HeaderLink $active={activeSection.includes('projects')}>
+            Projects
+          </HeaderLink>
+          <HeaderLink $active={activeSection.includes('contact')}>
+            Contact
+          </HeaderLink>
         </HeaderLinks>
       </HeaderContent>
     </HeaderContainer>
@@ -47,9 +86,9 @@ const HeaderLinks = styled.ul`
   }
 `
 
-const HeaderLink = styled.li`
+const HeaderLink = styled.li<{ $active: boolean }>`
   list-style: none;
-  color: ${theme.white};
+  color: ${props => (props.$active ? theme.green : theme.white)};
   font-family: ${theme.spaceMono};
   font-size: ${theme.fontSize2};
   cursor: pointer;

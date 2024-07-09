@@ -1,5 +1,5 @@
 import Header from '@/components/Header'
-import { Jobs, Studies } from '@/components/TimeContent'
+import { Career, Studies } from '@/components/TimeContent'
 
 /**
  * App component
@@ -9,7 +9,7 @@ export default function App() {
     <main>
       <Header />
       <Studies />
-      <Jobs />
+      <Career />
     </main>
   )
 }
