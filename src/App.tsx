@@ -1,3 +1,4 @@
+import Header from '@/components/Header'
 import { Jobs, Studies } from '@/components/TimeContent'
 
 /**
@@ -6,6 +7,7 @@ import { Jobs, Studies } from '@/components/TimeContent'
 export default function App() {
   return (
     <main>
+      <Header />
       <Studies />
       <Jobs />
     </main>
