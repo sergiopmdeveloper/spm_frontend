@@ -19,7 +19,7 @@ export function Studies() {
   })
 
   return (
-    <Section className="studies" id="section">
+    <Section className="section" id="studies">
       <SectionTitle id="01" name="Studies" />
       {query.isLoading && <Skeleton height="10rem" />}
       {query.error && <LoadingError height="10rem" source="studies" />}
@@ -57,7 +57,7 @@ export function Career() {
   })
 
   return (
-    <Section className="career" id="section">
+    <Section className="section" id="career">
       <SectionTitle id="02" name="Career" />
       {query.isLoading && <Skeleton height="10rem" />}
       {query.error && <LoadingError height="10rem" source="studies" />}

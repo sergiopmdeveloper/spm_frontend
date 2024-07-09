@@ -1,50 +1,22 @@
+import useActiveSection from '@/hooks/useActiveSection'
 import { theme } from '@/styles/theme'
-import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 /**
  * Header component
  */
 export default function Header() {
-  const [activeSection, setActiveSection] = useState('')
-
-  useEffect(() => {
-    const sections = document.querySelectorAll('#section')
-
-    const options = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.5,
-    }
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.className)
-        }
-      })
-    }, options)
-
-    sections.forEach(section => {
-      observer.observe(section)
-    })
-
-    return () => {
-      sections.forEach(section => {
-        observer.unobserve(section)
-      })
-    }
-  }, [])
+  const activeSection = useActiveSection()
 
   return (
     <HeaderContainer>
       <HeaderContent>
         <HeaderLinks>
           <HeaderLink $active={activeSection.includes('studies')}>
-            Studies
+            <a href="#studies">Studies</a>
           </HeaderLink>
           <HeaderLink $active={activeSection.includes('career')}>
-            Career
+            <a href="#career">Career</a>
           </HeaderLink>
           <HeaderLink $active={activeSection.includes('projects')}>
             Projects
