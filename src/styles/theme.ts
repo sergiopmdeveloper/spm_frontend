@@ -64,6 +64,10 @@ export const GlobalStyles = createGlobalStyle`
   h1, h2, h3, h4, p {
     margin: 0;
   }
+  button {
+    cursor: pointer;
+    border: none;
+  }
   a {
     color: inherit;
     text-decoration: none;

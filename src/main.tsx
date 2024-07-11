@@ -1,4 +1,5 @@
 import App from '@/App.tsx'
+import '@/styles/fonts'
 import { GlobalStyles } from '@/styles/theme'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import React from 'react'

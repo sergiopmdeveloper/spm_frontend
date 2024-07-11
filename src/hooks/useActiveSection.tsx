@@ -13,7 +13,7 @@ export default function useActiveSection(): string {
     const options = {
       root: null,
       rootMargin: '0px',
-      threshold: 0.5,
+      threshold: 1,
     }
 
     const observer = new IntersectionObserver(entries => {
