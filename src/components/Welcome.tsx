@@ -44,6 +44,15 @@ const WelcomeContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
+  padding: 0 2rem;
+  @media (width <= ${theme.tablet}) {
+    align-items: flex-start;
+    margin-top: 3rem;
+  }
+  @media (width <= ${theme.largeMobile}) {
+    padding: 0 1.5rem;
+  }
 `
 
 const WelcomeContent = styled.div`
@@ -65,6 +74,18 @@ const WelcomeTitle = styled.h1`
   -webkit-text-fill-color: transparent;
   color: ${theme.white};
   line-height: 1;
+  @media (width <= ${theme.smallLaptop}) {
+    font-size: ${theme.fontSize10};
+  }
+  @media (width <= ${theme.tablet}) {
+    text-align: left;
+  }
+  @media (width <= ${theme.largeMobile}) {
+    font-size: ${theme.fontSize8};
+  }
+  @media (width <= ${theme.smallMobile}) {
+    font-size: ${theme.fontSize7};
+  }
 `
 
 const WelcomeDescription = styled.p`
@@ -72,6 +93,15 @@ const WelcomeDescription = styled.p`
   font-size: ${theme.fontSize4};
   font-family: ${theme.roboto};
   color: ${theme.slate};
+  @media (width <= ${theme.smallLaptop}) {
+    font-size: ${theme.fontSize3};
+  }
+  @media (width <= ${theme.tablet}) {
+    text-align: left;
+  }
+  @media (width <= ${theme.largeMobile}) {
+    font-size: ${theme.fontSize2};
+  }
 `
 
 const WelcomeHighlighted = styled.span`
@@ -82,6 +112,10 @@ const WelcomeHighlighted = styled.span`
 const WelcomeButtonsContainer = styled.div`
   display: flex;
   gap: 1rem;
+  @media (width <= ${theme.tablet}) {
+    width: 100%;
+    flex-direction: column;
+  }
 `
 
 const WelcomeButton = styled.button`
@@ -102,6 +136,16 @@ const WelcomeButton = styled.button`
     transition:
       color 0.3s,
       filter 0.3s;
+  }
+  @media (width <= ${theme.smallLaptop}) {
+    font-size: ${theme.fontSize3};
+  }
+  @media (width <= ${theme.tablet}) {
+    width: 100%;
+    justify-content: center;
+  }
+  @media (width <= ${theme.smallMobile}) {
+    font-size: ${theme.fontSize2};
   }
 `
 
