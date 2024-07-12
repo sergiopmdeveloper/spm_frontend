@@ -1,18 +1,46 @@
 import { theme } from '@/styles/theme'
+import { useGSAP } from '@gsap/react'
 import { FilePerson, Github } from '@styled-icons/bootstrap'
+import { gsap } from 'gsap'
 import styled from 'styled-components'
 
 /**
  * Welcome component
  */
 export default function Welcome() {
+  useGSAP(() => {
+    gsap.from('.welcome-title', {
+      opacity: 0,
+      y: -75,
+      duration: 1,
+      delay: 0.3,
+      ease: 'power2.out',
+    })
+
+    gsap.from('.welcome-description', {
+      opacity: 0,
+      y: -75,
+      duration: 1,
+      delay: 0.4,
+      ease: 'power2.out',
+    })
+
+    gsap.from('.welcome-buttons', {
+      opacity: 0,
+      y: -75,
+      duration: 1,
+      delay: 0.5,
+      ease: 'power2.out',
+    })
+  }, {})
+
   return (
     <WelcomeContainer>
       <WelcomeContent>
-        <WelcomeTitle>
+        <WelcomeTitle className="welcome-title">
           I'm Sergio Peña and I'm a full stack developer
         </WelcomeTitle>
-        <WelcomeDescription>
+        <WelcomeDescription className="welcome-description">
           Hi! I'm Sergio Peña and I'm a{' '}
           <WelcomeHighlighted>full stack developer</WelcomeHighlighted>. Welcome
           to my portfolio where you will find everything you need to know about
@@ -23,7 +51,7 @@ export default function Welcome() {
           that has to do with coding is welcome.{' '}
           <WelcomeHighlighted>Let's work together?</WelcomeHighlighted>
         </WelcomeDescription>
-        <WelcomeButtonsContainer>
+        <WelcomeButtonsContainer className="welcome-buttons">
           <WelcomeButton>
             GitHub
             <GithubIcon />
