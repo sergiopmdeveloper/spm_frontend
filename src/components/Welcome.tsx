@@ -52,14 +52,18 @@ export default function Welcome() {
           <WelcomeHighlighted>Let's work together?</WelcomeHighlighted>
         </WelcomeDescription>
         <WelcomeButtonsContainer className="welcome-buttons">
-          <WelcomeButton>
-            GitHub
-            <GithubIcon />
-          </WelcomeButton>
-          <WelcomeButton>
-            Resume
-            <ResumeIcon />
-          </WelcomeButton>
+          <a href="https://github.com/sergiopmdeveloper" target="_blank">
+            <WelcomeButton>
+              GitHub
+              <GithubIcon />
+            </WelcomeButton>
+          </a>
+          <a href="/resume.pdf" download>
+            <WelcomeButton>
+              Resume
+              <ResumeIcon />
+            </WelcomeButton>
+          </a>
         </WelcomeButtonsContainer>
       </WelcomeContent>
     </WelcomeContainer>
