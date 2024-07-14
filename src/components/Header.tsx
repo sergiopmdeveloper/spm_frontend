@@ -12,7 +12,7 @@ export default function Header() {
 
   useGSAP(() => {
     gsap.from('.header-content', {
-      y: -100,
+      marginTop: -200,
       duration: 1,
       ease: 'power2.out',
     })
