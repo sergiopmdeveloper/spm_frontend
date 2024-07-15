@@ -1,4 +1,5 @@
 import Header from '@/components/Header'
+import Projects from '@/components/Projects'
 import { Career, Studies } from '@/components/TimeContent'
 import Welcome from '@/components/Welcome'
 
@@ -12,6 +13,7 @@ export default function App() {
       <Welcome />
       <Studies />
       <Career />
+      <Projects />
     </main>
   )
 }
