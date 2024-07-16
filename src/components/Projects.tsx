@@ -29,6 +29,11 @@ export default function Projects() {
             <a href={project.link} target="_blank">
               <ProjectButton>Project</ProjectButton>
             </a>
+            <ProjectTechnologies>
+              {project.technologies.split(',').map((technology, index) => (
+                <ProjectTechnology key={index}>{technology}</ProjectTechnology>
+              ))}
+            </ProjectTechnologies>
           </ProjectContainer>
         ))}
         {query.data && (
@@ -61,6 +66,7 @@ const ProjectsContainer = styled.div`
 `
 
 const ProjectContainer = styled.div`
+  position: relative;
   min-width: 30rem;
   height: 14rem;
   display: flex;
@@ -71,6 +77,7 @@ const ProjectContainer = styled.div`
   padding: 1rem;
   @media (width <= ${theme.largeMobile}) {
     min-width: 100%;
+    height: 16rem;
   }
 `
 
@@ -89,6 +96,9 @@ const ProjectDescription = styled.p`
   color: ${theme.slate};
   @media (width <= ${theme.largeMobile}) {
     font-size: ${theme.fontSize3};
+  }
+  @media (width <= ${theme.smallMobile}) {
+    font-size: ${theme.fontSize2};
   }
 `
 
@@ -115,6 +125,28 @@ const ProjectButton = styled.button`
   }
 `
 
+const ProjectTechnologies = styled.div`
+  position: absolute;
+  display: flex;
+  gap: 0.5rem;
+  bottom: 1rem;
+  right: 1rem;
+  @media (width <= ${theme.largeMobile}) {
+    position: inherit;
+    bottom: inherit;
+    right: inherit;
+  }
+`
+
+const ProjectTechnology = styled.span`
+  font-family: ${theme.spaceMono};
+  font-size: ${theme.fontSize1};
+  background-color: ${theme.lightestNavy};
+  color: ${theme.lightSlate};
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+`
+
 const SeeMore = styled.button`
   height: 14rem;
   font-family: ${theme.spaceMono};
@@ -135,5 +167,8 @@ const SeeMore = styled.button`
     transition:
       color 0.3s,
       filter 0.3s;
+  }
+  @media (width <= ${theme.largeMobile}) {
+    height: 16rem;
   }
 `
