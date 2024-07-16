@@ -16,8 +16,6 @@ export default function Projects() {
     queryFn: getProjects,
   })
 
-  console.log(query.data)
-
   return (
     <Section className="section" id="projects">
       <SectionTitle id="03" name="Projects" />
@@ -25,8 +23,22 @@ export default function Projects() {
       {query.error && <LoadingError height="10rem" source="projects" />}
       <ProjectsContainer>
         {query.data?.map((project, index) => (
-          <ProjectContainer key={index}>{project.name}</ProjectContainer>
+          <ProjectContainer key={index}>
+            <ProjectTitle>{project.name}</ProjectTitle>
+            <ProjectDescription>{project.description}</ProjectDescription>
+            <a href={project.link} target="_blank">
+              <ProjectButton>Project</ProjectButton>
+            </a>
+          </ProjectContainer>
         ))}
+        {query.data && (
+          <a
+            href="https://github.com/sergiopmdeveloper?tab=repositories"
+            target="_blank"
+          >
+            <SeeMore>See more</SeeMore>
+          </a>
+        )}
       </ProjectsContainer>
     </Section>
   )
@@ -49,7 +61,67 @@ const ProjectsContainer = styled.div`
 `
 
 const ProjectContainer = styled.div`
-  height: 20rem;
+  min-width: 30rem;
+  height: 14rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: ${theme.lightNavy};
-  min-width: 35rem;
+  box-sizing: border-box;
+  padding: 1rem;
+`
+
+const ProjectTitle = styled.h2`
+  font-family: ${theme.roboto};
+  font-size: ${theme.fontSize5};
+  color: ${theme.white};
+`
+
+const ProjectDescription = styled.p`
+  font-family: ${theme.roboto};
+  font-size: ${theme.fontSize4};
+  color: ${theme.slate};
+`
+
+const ProjectButton = styled.button`
+  width: fit-content;
+  font-family: ${theme.spaceMono};
+  font-size: ${theme.fontSize3};
+  background-color: ${theme.lightestNavy};
+  color: ${theme.white};
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition:
+    color 0.3s,
+    filter 0.3s;
+  &:hover {
+    color: ${theme.green};
+    filter: brightness(0.9);
+    transition:
+      color 0.3s,
+      filter 0.3s;
+  }
+`
+
+const SeeMore = styled.button`
+  height: 14rem;
+  font-family: ${theme.spaceMono};
+  font-size: ${theme.fontSize4};
+  background-color: ${theme.lightestNavy};
+  color: ${theme.white};
+  padding: 0 1rem;
+  border-radius: 0.5rem;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  transition:
+    color 0.3s,
+    filter 0.3s;
+  &:hover {
+    color: ${theme.green};
+    filter: brightness(0.9);
+    transition:
+      color 0.3s,
+      filter 0.3s;
+  }
 `
