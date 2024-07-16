@@ -69,18 +69,27 @@ const ProjectContainer = styled.div`
   background-color: ${theme.lightNavy};
   box-sizing: border-box;
   padding: 1rem;
+  @media (width <= ${theme.largeMobile}) {
+    min-width: 100%;
+  }
 `
 
 const ProjectTitle = styled.h2`
   font-family: ${theme.roboto};
   font-size: ${theme.fontSize5};
   color: ${theme.white};
+  @media (width <= ${theme.largeMobile}) {
+    font-size: ${theme.fontSize4};
+  }
 `
 
 const ProjectDescription = styled.p`
   font-family: ${theme.roboto};
   font-size: ${theme.fontSize4};
   color: ${theme.slate};
+  @media (width <= ${theme.largeMobile}) {
+    font-size: ${theme.fontSize3};
+  }
 `
 
 const ProjectButton = styled.button`
@@ -100,6 +109,9 @@ const ProjectButton = styled.button`
     transition:
       color 0.3s,
       filter 0.3s;
+  }
+  @media (width <= ${theme.largeMobile}) {
+    font-size: ${theme.fontSize2};
   }
 `
 
